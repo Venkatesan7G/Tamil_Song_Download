@@ -1,0 +1,15 @@
+#!/bin/bash
+
+printf "Enter Site Url: " 
+read urln
+printf "Enter Album Name: "
+read albumn
+mkdir -p "$albumn"
+
+urls=$(curl "https://masstamilan.dev/thiruchitrambalam-songs" | grep "/downloader/*" | cut -d\" -f4 | grep /*/*/*/d320_*/*)
+for url in $urls;
+do
+    echo "Downloading $url..."
+    aria2c -d "$albumn" "$urln""$url"
+done
+
