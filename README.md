@@ -7,7 +7,7 @@ Heavyly inspired by **bugswriter's** song download script
 
 Get started with, 
 
-songd <Url of the album page>
+songd *Url of the album page*
 
 Url of the site :            # this is due to masstamilan changes its .* domain name frequently for obvious reasons !
 
