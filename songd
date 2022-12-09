@@ -1,15 +1,15 @@
 #!/bin/bash
-
-printf "Enter Site Url: " 
-read urln
-printf "Enter Album Name: "
-read albumn
+site=$(curl -s "$1" | grep -oiE "https://masstamilan.*/*" | cut -d '>' -f1 | cut -d '"' -f1 | head -n 1)                                   # Download site url
+albumn=$(curl "$1"  | grep -o "https://masstamilan.*/*" | cut -d'"' -f1 | cut -d '/' -f4 | grep -e \[a-zA-Z0-9]+* | head -n 1)             # Album/Movie name for creating folder
+urln=$(curl -s "$1" | grep -o "https://masstamilan.*/*" | cut -d'"' -f1 | cut -d '/' -f3 | tail -n 1)                                      # snips out masstamilan.* domain name
 mkdir -p "$albumn"
-
-urls=$(curl "https://masstamilan.dev/thiruchitrambalam-songs" | grep "/downloader/*" | cut -d\" -f4 | grep /*/*/*/d320_*/*)
+urls=$(curl "$site" | grep "/downloader/*" | cut -d\" -f4 | grep /*/*/*/d320_*/*)                                                          #take downloader url for 320kbps
 for url in $urls;
 do
     echo "Downloading $url..."
-    aria2c -d "$albumn" "$urln""$url"
+    aria2c -d $albumn https://"$urln""$url" --continue=true                                                                                #Skip if files are already present..
 done
+#vlc $albumn/*
+
+
 
