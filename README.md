@@ -5,7 +5,7 @@ Simple script to Download Tamil songs from pirate mp3 song download site : ***Ma
 
 Heavyly inspired by **bugswriter's** song download script
 
-Pre-requisite : aria2c, Bash ?!
+Pre-requisite : [aria2c](https://github.com/aria2/aria2/releases), Bash ?!
 
 Get started with, 
 ```sh
