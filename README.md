@@ -9,10 +9,4 @@ Pre-requisite : aria2c, Bash ?!
 
 Get started with, 
 
-songd *Url of the album page*
-
-Url of the site :            # this is due to masstamilan changes its .* domain name frequently for obvious reasons !
-
-Album Dir name :
-
-Enjoy !
+./songd *Url of the album page*
