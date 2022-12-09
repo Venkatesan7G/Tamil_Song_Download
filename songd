@@ -10,6 +10,3 @@ do
     aria2c -d $albumn https://"$urln""$url" --continue=true                                                                                #Skip if files are already present..
 done
 #vlc $albumn/*
-
-
-
